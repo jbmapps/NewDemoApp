@@ -1,10 +1,14 @@
 package com.tiranga.acharyaattendence.utils
 
+import android.app.Activity
 import android.app.Dialog
 import android.content.Context
 import android.content.DialogInterface
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Handler
+import android.os.Looper
 import android.os.SystemClock
 import android.util.Log
 import android.view.LayoutInflater
@@ -19,6 +23,23 @@ import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Response
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
+
+fun Activity.gotoActivity(activityClass: Class<*>?, isFinish: Boolean) {
+    sendIntent(this, Intent(this, activityClass), isFinish)
+}
+
+fun Activity.gotoIntent(intent: Intent?, isFinish: Boolean) {
+    sendIntent(this, intent, isFinish)
+}
+
+fun sendIntent(activity: Activity, intent: Intent?, isFinish: Boolean) {
+    activity.startActivity(intent)
+    if (isFinish) activity.finish()
+}
+
+fun delayTask(delay: Long = 2000, action: () -> Unit) {
+    Handler(Looper.getMainLooper()).postDelayed(action, delay)
+}
 
 fun Context.showToast(text: String) {
     Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
