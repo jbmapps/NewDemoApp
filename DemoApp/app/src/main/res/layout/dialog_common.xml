@@ -10,17 +10,15 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="@dimen/_10sdp"
-        app:cardCornerRadius="@dimen/_10sdp">
+        app:cardCornerRadius="10dp">
 
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/_10sdp"
             android:gravity="center"
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/ivUlogo"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/_100sdp"
                 android:layout_marginTop="@dimen/_12sdp"
@@ -42,19 +40,44 @@
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_12ssp" />
 
-            <TextView
-                android:id="@+id/btnClose"
-                style="@style/txtNormalButton"
-                android:background="@drawable/bg_button"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_40sdp"
-                android:layout_marginTop="@dimen/_15sdp"
-                android:foreground="?android:attr/selectableItemBackground"
-                android:gravity="center"
-                android:text="@string/kk_ok"/>
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginTop="@dimen/_25sdp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/btnCancel"
+                    style="@style/txtCancelButton"
+                    android:layout_width="0dp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_cancel_button"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:text="@string/kk_cancel"
+                    android:theme="@android:style/ThemeOverlay.Material.Dark" />
+
+                <TextView
+                    android:id="@+id/btnSubmit"
+                    style="@style/txtNormalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_35sdp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_button"
+                    android:foreground="?android:attr/selectableItemBackground"
+                    android:gravity="center"
+                    android:text="@string/kk_submit"
+                    android:theme="@android:style/ThemeOverlay.Material.Dark" />
+
+
+            </LinearLayout>
 
         </LinearLayout>
 
     </androidx.cardview.widget.CardView>
-</FrameLayout>
 
+</FrameLayout>

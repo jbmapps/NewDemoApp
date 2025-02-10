@@ -14,10 +14,11 @@ import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.tiranga.acharyaattendence.R
 import com.tiranga.acharyaattendence.databinding.DialogCommonBinding
-import com.tiranga.acharyaattendence.databinding.DialogConfirmBinding
 import com.tiranga.acharyaattendence.model.NetworkResult
 import okhttp3.ResponseBody
+import org.json.JSONObject
 import retrofit2.Response
+import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 
 fun Context.showToast(text: String) {
     Toast.makeText(this, text, Toast.LENGTH_SHORT).show()
@@ -31,6 +32,17 @@ fun showLog(text: String = "log") {
     }
 }
 
+fun Context.getProgressImage(): CircularProgressDrawable {
+    return CircularProgressDrawable(this).apply {
+        strokeWidth = 10f
+        centerRadius = 50f
+        setColorSchemeColors(
+            getColor(R.color.colorMain)
+        )
+        start()
+    }
+}
+
 fun Context.handleResponse(
     response: Response<ResponseBody>,
     data: MutableLiveData<NetworkResult<ResponseBody>>
@@ -38,9 +50,13 @@ fun Context.handleResponse(
     if (response.isSuccessful && response.body() != null) {
         data.postValue(NetworkResult.Success(response.body()!!))
     } else if (response.errorBody() != null) {
-        /*  val errorObj = JSONObject(response.errorBody()!!.charStream().readText())
-          data.postValue(NetworkResult.Error(errorObj.getString("message")))*/
-        data.postValue(NetworkResult.Error(resources.getString(R.string.kk_error_unknown)))
+        try {
+            val errorObj = JSONObject(response.errorBody()!!.charStream().readText())
+            data.postValue(NetworkResult.Error(errorObj.getString("message")))
+        } catch (e: Exception) {
+            e.printStackTrace()
+            data.postValue(NetworkResult.Error(resources.getString(R.string.kk_error_unknown)))
+        }
     } else {
         data.postValue(NetworkResult.Error(resources.getString(R.string.kk_error_unknown)))
     }
@@ -74,9 +90,9 @@ fun Context.showCommonDialog(
     }
     dialogN.setCancelable(false)
     dialogN.setCanceledOnTouchOutside(false)
-
-    commonBinding.btnClose.text = buttonText
-    commonBinding.btnClose.onSingleClick {
+    commonBinding.btnCancel.visibility = View.GONE
+    commonBinding.btnSubmit.text = buttonText
+    commonBinding.btnSubmit.onSingleClick {
         dialogN.setOnDismissListener { action.invoke() }
         dialogN.dismiss()
     }
@@ -88,12 +104,12 @@ fun Context.showConfirmDialog(
     message: String = resources.getString(R.string.kk_error_unknown),
     btnYesText: String = resources.getString(R.string.kk_ok),
     btnNoText: String = resources.getString(R.string.kk_cancel),
-     action: () -> Unit
+    action: () -> Unit
 ) {
     try {
         val dialog = Dialog(this)
-        val binding: DialogConfirmBinding =
-            DialogConfirmBinding.inflate(LayoutInflater.from(this))
+        val binding: DialogCommonBinding =
+            DialogCommonBinding.inflate(LayoutInflater.from(this))
         dialog.setContentView(binding.getRoot())
         if (dialog.window != null) {
             dialog.window!!.setBackgroundDrawable(ColorDrawable(Color.parseColor("#802E2E2E")))

@@ -3,6 +3,7 @@ package com.tiranga.acharyaattendence.repo
 import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.tiranga.acharyaattendence.R
 import com.tiranga.acharyaattendence.api.RetroAPI
 import com.tiranga.acharyaattendence.utils.*
 import com.tiranga.acharyaattendence.model.NetworkResult
@@ -24,7 +25,7 @@ class StartRepo @Inject constructor(
             context.handleResponse(retroAPI.updateApi(requestBody), _updateData)
         } catch (e: Exception) {
             e.printStackTrace()
-            _updateData.postValue(NetworkResult.Error("Something Went Wrong"))
+            _updateData.postValue(NetworkResult.Error(context.getString(R.string.kk_error_unknown)))
         }
     }
 
