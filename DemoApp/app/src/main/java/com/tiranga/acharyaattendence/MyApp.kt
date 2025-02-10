@@ -7,9 +7,6 @@ import dagger.hilt.android.HiltAndroidApp
 @HiltAndroidApp
 class MyApp : Application() {
 
-    companion object {
-        const val TAG = "LivenessApp"
-    }
     override fun onCreate() {
         super.onCreate()
         FirebaseApp.initializeApp(this)
