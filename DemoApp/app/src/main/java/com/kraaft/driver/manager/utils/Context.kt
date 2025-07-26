@@ -31,8 +31,11 @@ fun sendIntent(activity: Activity, intent: Intent?, isFinish: Boolean) {
     if (isFinish) activity.finish()
 }
 
-fun delayTask(delay: Long = 2000, action: () -> Unit) {
-    Handler(Looper.getMainLooper()).postDelayed(action, delay)
+fun delayTask(timer: Long = 2000, action: () -> Unit) {
+    CoroutineScope(Dispatchers.Default).launch {
+        delay(timer)
+        action.invoke()
+    }
 }
 
 fun Context.showToast(text: String) {
