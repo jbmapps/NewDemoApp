@@ -23,10 +23,10 @@
             android:padding="@dimen/_15sdp">
 
             <TextView
+                style="@style/fontBold"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:fontFamily="@font/mfont"
                 android:paddingTop="@dimen/_10sdp"
                 android:paddingBottom="@dimen/_10sdp"
                 android:text="@string/app_name"
@@ -40,18 +40,18 @@
 
                 <ProgressBar
                     android:id="@+id/animation_view"
-                    android:indeterminateTint="@color/colorMain"
                     android:layout_width="@dimen/_35sdp"
-                    android:layout_height="@dimen/_35sdp" />
+                    android:layout_height="@dimen/_35sdp"
+                    android:indeterminateTint="@color/colorMain" />
 
                 <TextView
+                    style="@style/fontNormal"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_margin="@dimen/_10sdp"
-                    style="@style/fontNormal"
-                    android:textColor="@color/colorCommon"
                     android:text="@string/kk_loading_please_wait"
+                    android:textColor="@color/colorTitle"
                     android:textSize="@dimen/_14ssp" />
             </LinearLayout>
         </LinearLayout>

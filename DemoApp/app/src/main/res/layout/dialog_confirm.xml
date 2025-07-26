@@ -8,55 +8,60 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="@dimen/_10sdp"
         android:background="@drawable/bg_normal_button"
         android:backgroundTint="@color/colorWhite"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/_10sdp"
         app:cardCornerRadius="10dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
             android:gravity="center"
-            android:orientation="vertical"
-            app:layout_constraintTop_toTopOf="parent">
+            android:paddingTop="@dimen/_5sdp"
+            android:orientation="vertical">
 
-            <ImageView
+            <TextView
+                android:id="@+id/tvTitle"
+                style="@style/fontSemiBold"
                 android:layout_width="match_parent"
-                android:layout_height="@dimen/_100sdp"
-                android:layout_marginTop="@dimen/_12sdp"
-                android:src="@drawable/ic_no_internet"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:layout_marginVertical="@dimen/_10sdp"
+                android:gravity="center|start"
+                android:maxLines="5"
+                android:text="@string/app_name"
+                android:textColor="@color/colorBlack"
+                android:textSize="@dimen/_14ssp" />
+
 
             <TextView
                 android:id="@+id/tvMessage"
                 style="@style/fontMedium"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="@dimen/_20sdp"
-                android:layout_marginVertical="@dimen/_10sdp"
-                android:gravity="center"
+                android:layout_marginHorizontal="@dimen/_10sdp"
+                android:gravity="center|start"
                 android:maxLines="5"
-                android:text="@string/kk_error_unknown"
+                android:text="@string/kk_error_try_again"
                 android:textColor="@color/colorBlack"
                 android:textSize="@dimen/_12ssp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_25sdp"
-                android:layout_marginBottom="@dimen/_10sdp"
                 android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/btnCancel"
                     style="@style/txtCancelButton"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/_35sdp"
                     android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_height="@dimen/_35sdp"
                     android:layout_weight="1"
                     android:background="@drawable/bg_cancel_button"
                     android:foreground="?android:attr/selectableItemBackground"
@@ -73,7 +78,7 @@
                     android:background="@drawable/bg_normal_button"
                     android:foreground="?android:attr/selectableItemBackground"
                     android:gravity="center"
-                    android:text="@string/kk_submit"
+                    android:text="@string/kk_continue"
                     android:theme="@android:style/ThemeOverlay.Material.Dark" />
 
 
