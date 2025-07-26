@@ -12,7 +12,7 @@ espressoCore = "3.6.1"
 appcompat = "1.7.1"
 kotlinxCoroutinesAndroid = "1.6.0"
 kotlinxCoroutinesCore = "1.6.0"
-lifecycleViewmodelKtx = "2.5.0-beta01"
+lifecycleViewmodelKtx = "2.7.0"
 loggingInterceptor = "4.4.1"
 material = "1.12.0"
 activity = "1.10.1"
@@ -29,6 +29,7 @@ androidx-activity-ktx = { module = "androidx.activity:activity-ktx", version.ref
 androidx-core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "coreKtx" }
 androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", version.ref = "coreSplashscreen" }
 androidx-fragment-ktx = { module = "androidx.fragment:fragment-ktx", version.ref = "fragmentKtx" }
+lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-lifecycle-livedata-ktx = { module = "androidx.lifecycle:lifecycle-livedata-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-lifecycle-viewmodel-ktx = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycleViewmodelKtx" }
 androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
