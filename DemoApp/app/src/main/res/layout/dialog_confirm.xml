@@ -8,7 +8,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/bg_normal_button"
+        android:background="@drawable/bg_rounded_shape"
         android:backgroundTint="@color/colorWhite"
         android:layout_gravity="center"
         android:layout_margin="@dimen/_10sdp"
@@ -50,34 +50,29 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="@dimen/button_height"
                 android:layout_marginBottom="@dimen/_10sdp"
                 android:layout_marginHorizontal="@dimen/_10sdp"
                 android:layout_marginTop="@dimen/_25sdp"
                 android:orientation="horizontal">
 
-                <TextView
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnCancel"
                     style="@style/txtCancelButton"
                     android:layout_width="0dp"
                     android:layout_marginEnd="@dimen/_10sdp"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_cancel_button"
-                    android:foreground="?android:attr/selectableItemBackground"
                     android:gravity="center"
                     android:text="@string/kk_cancel"
                     android:theme="@android:style/ThemeOverlay.Material.Dark" />
 
-                <TextView
+                <com.google.android.material.button.MaterialButton
                     android:id="@+id/btnSubmit"
                     style="@style/txtNormalButton"
                     android:layout_width="0dp"
-                    android:layout_height="@dimen/_35sdp"
+                    android:layout_height="match_parent"
                     android:layout_weight="1"
-                    android:background="@drawable/bg_normal_button"
-                    android:foreground="?android:attr/selectableItemBackground"
-                    android:gravity="center"
                     android:text="@string/kk_continue"
                     android:theme="@android:style/ThemeOverlay.Material.Dark" />
 

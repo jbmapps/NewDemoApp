@@ -46,12 +46,12 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/cvError"
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="@dimen/_10sdp"
         android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="gone">
+        android:orientation="vertical">
 
         <androidx.constraintlayout.helper.widget.Flow
             android:layout_width="match_parent"
@@ -83,14 +83,11 @@
             android:textColor="@color/colorTitle"
             android:textSize="@dimen/_12ssp" />
 
-        <TextView
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btnRetry"
             style="@style/txtNormalButton"
             android:layout_width="0dp"
-            android:layout_height="@dimen/_40sdp"
-            android:background="@drawable/bg_normal_button"
-            android:foreground="?android:attr/selectableItemBackground"
-            android:gravity="center"
+            android:layout_height="@dimen/button_height"
             android:text="@string/kk_retry" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
