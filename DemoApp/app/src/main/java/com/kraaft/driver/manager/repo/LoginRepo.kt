@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import com.kraaft.driver.manager.R
 import com.kraaft.driver.manager.api.RetroAPI
 import com.kraaft.driver.manager.model.NetworkResult
-import com.kraaft.driver.manager.utils.X_API_KEY
 import com.kraaft.driver.manager.utils.handleResponse
 import dagger.hilt.android.qualifiers.ApplicationContext
 import okhttp3.RequestBody
@@ -25,7 +24,7 @@ class LoginRepo @Inject constructor(
     suspend fun loginApp(requestBody: RequestBody) {
         _loginData.postValue(NetworkResult.Loading())
         try {
-            context.handleResponse(retroAPI.loginApp(X_API_KEY,requestBody), _loginData)
+            context.handleResponse(retroAPI.loginApp("X_API_KEY",requestBody), _loginData)
         } catch (e: Exception) {
             e.printStackTrace()
             _loginData.postValue(NetworkResult.Error(context.getString(R.string.kk_error_unknown)))

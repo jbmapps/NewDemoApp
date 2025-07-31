@@ -2,10 +2,10 @@ package com.kraaft.driver.manager.ui.main
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
-import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.kraaft.driver.manager.databinding.ActivityMainBinding
+import com.kraaft.driver.manager.ui.base.BaseActivity
 
 class MainActivity : BaseActivity() {
 
