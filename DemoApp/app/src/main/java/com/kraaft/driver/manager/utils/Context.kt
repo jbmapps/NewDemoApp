@@ -3,8 +3,6 @@ package com.kraaft.driver.manager.utils
 import android.app.Activity
 import android.content.Context
 import android.content.Intent
-import android.os.Handler
-import android.os.Looper
 import android.os.SystemClock
 import android.util.Log
 import android.view.View
@@ -13,6 +11,11 @@ import androidx.lifecycle.MutableLiveData
 import androidx.swiperefreshlayout.widget.CircularProgressDrawable
 import com.kraaft.driver.manager.R
 import com.kraaft.driver.manager.model.NetworkResult
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import okhttp3.ResponseBody
 import org.json.JSONObject
 import retrofit2.Response
@@ -34,7 +37,9 @@ fun sendIntent(activity: Activity, intent: Intent?, isFinish: Boolean) {
 fun delayTask(timer: Long = 2000, action: () -> Unit) {
     CoroutineScope(Dispatchers.Default).launch {
         delay(timer)
-        action.invoke()
+        withContext(Dispatchers.Main){
+            action.invoke()
+        }
     }
 }
 
